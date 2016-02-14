@@ -9,10 +9,11 @@ import Order from './Order';
 import Inventory from './Inventory';
 import Catalyst from 'react-catalyst';
 import reactMixin from 'react-mixin';
+import config from '../config';
 
 // Firebase
 import Rebase  from 're-base';
-var base = Rebase.createClass('https://catch-of-the-day-sm.firebaseio.com/');
+var base = Rebase.createClass(config.firebase.url);
 
 class App extends React.Component {
   //mixins : [Catalyst.LinkedStateMixin],
