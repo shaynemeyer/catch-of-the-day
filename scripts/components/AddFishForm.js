@@ -5,8 +5,9 @@
 
 import React from 'react';
 
-var AddFishForm = React.createClass({
-  createFish : function(event) {
+
+class AddFishForm extends React.Component{
+  createFish(event) {
     // 1. Stop the form from submitting
     event.preventDefault();
     // 2. Take the data from the form and create an object
@@ -21,10 +22,11 @@ var AddFishForm = React.createClass({
     // 3. Add the fish to the App State
     this.props.addFish(fish);
     this.refs.fishForm.reset();
-  },
-  render : function() {
+  }
+
+  render() {
     return (
-      <form className="fish-edit" ref="fishForm" onSubmit={this.createFish}>
+      <form className="fish-edit" ref="fishForm" onSubmit={this.createFish.bind(this)}>
         <input type="text" ref="name" placeholder="Fish Name"/>
         <input type="text" ref="price" placeholder="Fish Price" />
         <select ref="status">
@@ -37,6 +39,6 @@ var AddFishForm = React.createClass({
       </form>
     )
   }
-});
+};
 
 export default AddFishForm;
