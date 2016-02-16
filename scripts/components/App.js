@@ -103,7 +103,8 @@ class App extends React.Component {
             loadSamples={this.loadSamples.bind(this)}
             fishes={this.state.fishes}
             linkState={this.linkState.bind(this)}
-            removeFish={this.removeFish.bind(this)} />
+            removeFish={this.removeFish.bind(this)}
+            storeId={this.props.params.storeId}/>
       </div>
     )
   }
