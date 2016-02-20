@@ -21,7 +21,7 @@ class Inventory extends React.Component{
 
   authenticate(provider){
     console.log("Trying to auth with " + provider);
-    ref.authWithOAuthPopup(provider, this.authHandler);
+    ref.authWithOAuthPopup(provider, this.authHandler.bind(this));
   }
 
   componentWillMount() {
@@ -63,8 +63,6 @@ class Inventory extends React.Component{
     });
   }
 
-
-
   logout(){
 
     ref.unauth();
@@ -105,7 +103,7 @@ class Inventory extends React.Component{
   }
 
   render() {
-    let logoutButton = <button onClick={this.logout}>Log Out!</button>
+    let logoutButton = <button onClick={this.logout.bind(this)}>Log Out!</button>
 
     // first check if they arent logged in
     if(!this.state.uid) {
